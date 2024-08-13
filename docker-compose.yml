@@ -1,0 +1,16 @@
+version: '3.8'  # Specify the version of Docker Compose
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: pagewiz  # Set the connection name
+    ports:
+      - "3306:3306"  # Map port 3306 of the host to port 3306 of the container
+    environment:
+      MYSQL_ROOT_PASSWORD: your_password  # Set the root password
+      MYSQL_DATABASE: your_database_name  # Optional: specify a database name
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist data in a Docker volume
+
+volumes:
+  mysql_data:
